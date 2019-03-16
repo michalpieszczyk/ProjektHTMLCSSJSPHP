@@ -6,7 +6,7 @@ body
 
 #container
 {
-	width: 1000px;
+	width: 92%;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -40,33 +40,22 @@ body
 	color: black;
 	font-size: 20px;
 	background-color: #CBF0AF;
-	height: 130px;
-	width: 940px;
-	padding-left: 40px;
-	padding-right: 40px;
+	min-height: 130px;
+	width: 94%;
+	padding-left: 2%;
+	padding-right: 2%;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	margin-top: 20px;
 }
 
-
-#sidebar
-{
-	width: 197px;
-	border-right: 3px dashed #777777;
-	float: left; 
-	margin-top: 20px;
-	background-color: #DDDDDD;
-	min-height: 600px;
-}
-
 #content
 {
 	float: left;
-	width: 940px;
+	width: 94%;
 	margin-top: 20px;
-	padding-left: 40px;
-	padding-right: 40px;
+	padding-left: 2%;
+	padding-right: 2%;
 	padding-top: 10px;
 	padding-bottom: 30px;
 	background-color: #DDDDDD;
@@ -77,7 +66,9 @@ body
 
 #footer
 {
-	
+	color: #ffffff;
+	margin-top: 1%;
+
 }
 
 .option
@@ -107,13 +98,44 @@ body
 }
 */
 
-a:link, a:visited, a:hover, a:active {
+a:link, a:visited, a:hover, a:active
+{
 	color: #ffffff;
 	text-decoration: none;
 
-  }
-  
+}
 
+.tg  
+{
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.tg td
+{
+	font-size: 14px;
+	padding: 10px 5px;
+	border-style: solid;
+	border-width: 1px;
+	word-break: normal;
+	border-color: black;
+	
+}
+.tg th
+{
+	font-size: 14px;
+	padding: 10px 5px;
+	border-style: solid;
+	border-width: 1px;
+	word-break: normal;
+	border-color:black;
+}
+
+.tg .tg-0lax
+{
+	text-align: center;
+}
+				
 
 
 
