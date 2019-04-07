@@ -98,7 +98,7 @@ body
 }
 */
 
-a:link, a:visited, a:active
+a:link, a:visited
 {
 	color: #ffffff;
 	text-decoration: none;
