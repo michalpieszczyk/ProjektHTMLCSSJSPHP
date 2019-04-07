@@ -71,6 +71,19 @@ body
 
 }
 
+#contentRight
+{
+	width: 40%;
+	float: left;
+}
+
+#contentLeft
+{
+	width: 50%;
+	float: left;
+	min-width: 500px;
+}
+
 .option
 {
 	float: left;
