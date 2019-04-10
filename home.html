@@ -19,7 +19,7 @@
 			<a href="photos.html"><div class="option">Photos</div></a>
 			<a href="howtowatch.html"><div class="option">How to watch?</div></a>
 			<div class="option">Submit a photo</div>
-			<a href="contact.html"><div class="option">Contact</div><a/>
+			<a href="contact.html"><div class="option">Contact</div></a>
 			<div style="clear:both;"></div>
 		</div>
 		
@@ -33,6 +33,77 @@
 	
 	
 		<div id="container2">
+				<div id="content">
+						<div id="contentLeft">
+							<h1>Chinese GP 2019</h1><br />
+							Shanghai International Circuit</br>
+							Length: 5.451 km (3.388 mi)</br>
+							Distance: 56 laps, 305.066 km (189.559 mi)</br>
+							Lap record: Michael Schumacher, Ferrari, 2005, 1:32.238</br>
+							2018 pole: Sebastian Vettel, Ferrari, 1:31.095</br>
+							2018 fastest lap: Daniel Ricciardo, Red Bull, 1:35.785</br>
+							2018 winner: Daniel Ricciardo, Red Bull</br></br></br>
+								<table class="tg">
+									<tr>
+									<th class="tg-0lax"></th>
+									<th class="tg-0lax"><b>Session</b></th>
+									<th class="tg-0lax"><b>UTC</b></th>
+									</tr>
+									<tr>
+									<td class="tg-0lax"></td>
+									<td class="tg-0lax">Free Practice 1	</td>
+									<td class="tg-0lax">Fri 2:00</td>
+									</tr>
+									<tr>
+									<td class="tg-0lax"></td>
+									<td class="tg-0lax">Free Practice 2	</td>
+									<td class="tg-0lax">Fri 6:00</td>
+									</tr>
+									<tr>
+									<td class="tg-0lax">FORMULA 1 HEINEKEN CHINESE GRAND PRIX 2019</td>
+									<td class="tg-0lax">Free Practice 3	</td>
+									<td class="tg-0lax">Sat 3:00</td>
+									</tr>
+									<tr>
+									<td class="tg-0lax">Fri 12 Apr - Sun 14 Apr	</td>
+									<td class="tg-0lax">Qualifying</td>
+									<td class="tg-0lax">Sat 6:00</td>
+									</tr>
+									<tr>
+									<td class="tg-0lax">Shanghai</td>
+									<td class="tg-0lax">Race</td>
+									<td class="tg-0lax">Sun 6:10</td>
+									</tr>
+								</table>
+						</div>
+						<div id="contentRight">
+							<h2>RACE COUNTDOWN</h2>
+								<p id="chinaCountdown"> </p>
+								<script>
+									var raceDate = new Date("Apr 14, 2019 8:10:00").getTime();
+									var x = setInterval(function()
+									{
+										var now = new Date().getTime();
+										var distance = raceDate - now;
+
+										var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+										var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+										var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+										var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+										document.getElementById("chinaCountdown").innerHTML = days + "d " + hours + "h "
+  										+ minutes + "m " + seconds + "s ";
+
+										if (distance < 0) {
+										clearInterval(x);
+										document.getElementById("chinaCountdown").innerHTML = "RACE ONGOING";
+										}
+									}, 1000);
+								</script>
+						</div>
+					</div>
+				<div style="clear:both;"></div>
+
 				<div id="content">
 					<div id="contentLeft">
 						<h1>Bahrain GP 2019</h1><br />
@@ -139,7 +210,8 @@
 				</table>
 		</div>
 		<div id="contentRight">
-			<h2>RACE RESULTS</h2>
+			<h2>RACE HIGHLIST</h2>
+			
 		</div>
 		</div>
 		

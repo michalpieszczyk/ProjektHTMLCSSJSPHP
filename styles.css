@@ -84,6 +84,16 @@ body
 	min-width: 500px;
 }
 
+#chinaCountdown
+{
+	color: #222222;
+	font-size: 25px;
+	font-weight: 900;
+	letter-spacing: 2px;
+	padding-left: 5px;
+	margin-top: 10px;
+}
+
 .option
 {
 	float: left;
@@ -149,7 +159,6 @@ a:link, a:visited
 	text-align: center;
 }
 				
-
 
 
 
