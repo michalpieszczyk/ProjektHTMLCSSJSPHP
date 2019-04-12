@@ -58,7 +58,10 @@ body
 	min-height: 520px;
 }
 
-
+.hundredpercent
+{
+	width: 100%;
+}
 
 #footer
 {
