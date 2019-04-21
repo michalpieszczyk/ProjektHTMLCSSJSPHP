@@ -30,32 +30,42 @@
 		</div>
 		<div id="container2">
 		<div class="content">
-		<h1>Upload photo form</h1>
-		<?php 
-			if ((isset($_GET['checkrules'])) && ($_GET['checkrules'] == 0)) echo "You have to accept the rules before posting!<br/>";
-			if ((isset($_GET['username'])) && ($_GET['username'] == 0)) echo "Username can contain only letter and numbers!<br/>";
-			if ((isset($_GET['email'])) && ($_GET['email'] == 0)) echo "Invalid email!<br/>";
-		?>
+		<h1>Uploaded photo result</h1>
 		<br />
-		<form action="uploadresult.php" method="post" enctype="multipart/form-data">
-			Username: <br/> <input type="text" name="username"/><br/>
-			Email: <br/> <input type="email" name="email"/><br/>
-			Race: <br/> 
-			<input list="race" name="race">
-			<datalist id="race">
-			<option value="Australia GP 2019">
-			<option value="Bahrain GP 2019">
-			<option value="China GP 2019">
-			<option value="Baku GP 2019">
-			</datalist><br/><br/>
-			<input type="file" name="fileToUpload" id="fileToUpload"><br/><br/>
-			<label>
-			<input type="checkbox" name="checkrules"/> I accept the rules.<br/><br/>
-			<input type="submit">
-			</label>
-		</form>	
-		
-		
+		<?php
+			$target_dir = "uploads/";
+			$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+			$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+			if (isset($_POST["username"])) $username = $_POST['username'];
+			if (isset($_POST["email"])) $email = $_POST['email'];
+			if (isset($_POST["race"])) $race = $_POST['race'];
+			if (!isset($_POST['checkrules']))
+			{
+				Header("Location: upload.php?checkrules=0");
+			}
+			if (ctype_alnum($username)==false)
+			{
+				Header("Location: upload.php?username=0");
+			}
+			$emailB = filter_var($email, FILTER_SANITIZE_EMAIL);
+			if ((filter_var($emailB, FILTER_VALIDATE_EMAIL)==false) || ($emailB!=$email))
+			{
+				Header("Location: upload.php?email=0");
+			}
+
+
+				if ((move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)))
+				{
+					echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded." . "<br/><br/>";
+					echo "Username: " .$username . "<br/><br/>";
+					echo "Email: " .$email . "<br/><br/>";
+					echo "Race: " .$race ;
+				} 
+				else 
+				{
+					echo "Sorry, there was an error uploading your file.";
+				}
+		?><br/><br/>
 		</div>
 		<div style="clear:both;"></div>
 		</div>
