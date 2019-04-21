@@ -7,7 +7,9 @@
 	<link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	<div id="container">
+	
+	<div id="container"> 
+	
 		<div id="logo">
 			FORMULA 1 Season 2019
 		</div>
@@ -24,39 +26,30 @@
 		
 		<div id="topbar"> 
 			<div id="topbar2">
-				<h3>Upload a photo</h3>
-				Submit a photo to get featured!
+				<h3>Darkmode Beta</h3>
 			</div>
 			<div style="clear:both;"></div>
 		</div>
+	
+	
 		<div id="container2">
 		<div class="content">
-		<h1>Upload photo form</h1>
-		<?php 
-			if ((isset($_GET['checkrules'])) && ($_GET['checkrules'] == 0)) echo "You have to accept the rules before posting!<br/>";
-			if ((isset($_GET['username'])) && ($_GET['username'] == 0)) echo "Username can contain only letter and numbers!<br/>";
-			if ((isset($_GET['email'])) && ($_GET['email'] == 0)) echo "Invalid email!<br/>";
-		?>
-		<br />
-		<form action="uploadresult.php" method="post" enctype="multipart/form-data">
-			Username: <br/> <input type="text" name="username"/><br/>
-			Email: <br/> <input type="email" name="email"/><br/>
-			Race: <br/> 
-			<input list="race" name="race">
-			<datalist id="race">
-			<option value="Australia GP 2019">
-			<option value="Bahrain GP 2019">
-			<option value="China GP 2019">
-			<option value="Baku GP 2019">
-			</datalist><br/><br/>
-			<input type="file" name="fileToUpload" id="fileToUpload"><br/><br/>
-			<label>
-			<input type="checkbox" name="checkrules"/> I accept the rules.<br/><br/>
-			<input type="submit">
-			</label>
-		</form>	
-		
-		
+		<h3>Work in progress...</h3>
+		<p>Darmode Beta. Stay tuned!</p>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+		</script>
+		<script>
+		$(document).ready(function()
+		{
+			$("button").click(function()
+			{
+				$(".content").css({"background-color": "#606060", "color": "#DDDDDD"});
+				$("body").css({"background-color": "#101010"});
+			});
+		});
+		</script>
+
+		<button>Ultra dark mode beta</button>
 		</div>
 		<div style="clear:both;"></div>
 		</div>

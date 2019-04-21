@@ -16,7 +16,8 @@
 			<a href="home.html"><div class="option">Home</div></a>
 			<a href="photos.html"><div class="option">Photos</div></a>
 			<a href="howtowatch.html"><div class="option">How to watch?</div></a>
-			<a href="submitphoto.html"><div class="option">Submit a photo</div></a>
+			<a href="upload.php"><div class="option">Upload a photo</div></a>
+			<a href="darkmode.html"><div class="option">Test dark mode</div></a>
 			<a href="contact.html"><div class="option">Contact</div></a>
 			<div style="clear:both;"></div>
 		</div>
