@@ -98,8 +98,35 @@
 				echo "Error while inserting values ".$exception->getMessage();
 			}
 		}
+
+		if (isset($_POST['delete']))
+		{
+			$data = getPosts();
+			$delete_Query = "DELETE FROM `drivers` WHERE `id` = '$data[0]'";
+
+			try
+			{
+				$delete_Result = mysqli_query($connect, $delete_Query);
+
+				if ($delete_Result)
+				{
+					if (mysqli_affected_rows($connect) > 0)
+					{
+						echo "Data Deleted";
+					}
+					else
+					{
+						echo "Data Not Deleted";
+					}
+				}
+			}
+			catch (Exception $exception)
+			{
+				echo "Error while deleting values ".$exception->getMessage();
+			}
+		}
 ?>
-		<br/>
+		<br/><br/>
 		<form action="standings.php" method="post">
 			<input type="number" name="id" placeholder="ID" value="<?php echo $id;?>"><br/><br/>
 			<input type="number" name="number" placeholder="Number" value="<?php echo $number;?>"><br/><br/>
