@@ -10,7 +10,11 @@
 	$name = "";
 	$surname = "";
 	$teamid = "";
-
+	$idteam = "";
+	$nameteam = "";
+	$countryteam = "";
+	$idstanding = "";
+	$pointsstanding = "";
 
 	mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
@@ -33,6 +37,24 @@
 		$posts[4] = $_POST['teamid'];
 		return $posts;
 	}
+
+	function getPosts2()
+	{
+		$posts = array();
+		$posts[0] = $_POST['idteam'];
+		$posts[1] = $_POST['nameteam'];
+		$posts[2] = $_POST['countryteam'];
+		return $posts;
+	}
+
+	function getPosts3()
+	{
+		$posts = array();
+		$posts[0] = $_POST['idstanding'];
+		$posts[1] = $_POST['pointsstanding'];
+		return $posts;
+	}
+
 ?>
 
 <!DOCTYPE HTML>
@@ -70,7 +92,6 @@
 		<div id="container2">
 		<div class="content">
 		<h1>Drivers table</h1>
-		<br />
 		<?php
 		if (isset($_POST['insert']))
 		{
@@ -137,6 +158,141 @@
 				<input type="submit" name="insert" value="Insert">
 				<input type="submit" name="delete" value="Delete">
 			</div>
+		</form>
+		<br/><br/>
+		<h1>Teams table</h1>
+		<?php
+		if (isset($_POST['insertteam']))
+		{
+			$data = getPosts2();
+			$insert_Query = "INSERT INTO `teams` (`id`, `name`, `country`) VALUES ('$data[0]', '$data[1]', '$data[2]')";
+
+			try
+			{
+				$insert_Result = mysqli_query($connect, $insert_Query);
+
+				if ($insert_Result)
+				{
+					if (mysqli_affected_rows($connect) > 0)
+					{
+						echo "Data Inserted";
+					}
+					else
+					{
+						echo "Data Not Inserted";
+					}
+				}
+			}
+			catch (Exception $exception)
+			{
+				echo "Error while inserting values ".$exception->getMessage();
+			}
+		}
+
+		if (isset($_POST['deleteteam']))
+		{
+			$data = getPosts2();
+			$delete_Query = "DELETE FROM `teams` WHERE `id` = '$data[0]'";
+
+			try
+			{
+				$delete_Result = mysqli_query($connect, $delete_Query);
+
+				if ($delete_Result)
+				{
+					if (mysqli_affected_rows($connect) > 0)
+					{
+						echo "Data Deleted";
+					}
+					else
+					{
+						echo "Data Not Deleted";
+					}
+				}
+			}
+			catch (Exception $exception)
+			{
+				echo "Error while deleting values ".$exception->getMessage();
+			}
+		}
+?>
+		<br/><br/>
+		<form action="standings.php" method="post">
+			<input type="number" name="idteam" placeholder="Team ID" value="<?php echo $idteam;?>"><br/><br/>
+			<input type="text" name="nameteam" placeholder="Team name" value="<?php echo $nameteam;?>"><br/><br/>
+			<input type="text" name="countryteam" placeholder="Team country" value="<?php echo $nameteam;?>"><br/><br/>
+			<div>
+				<input type="submit" name="insertteam" value="Insert">
+				<input type="submit" name="deleteteam" value="Delete">
+			</div>
+		</form>
+		<br/><br/>
+		<h1>Drivers standing table</h1>
+		<?php
+		if (isset($_POST['insertstanding']))
+		{
+			$data = getPosts3();
+			$insert_Query = "INSERT INTO `drivers_standings` (`driver_id`, `points`) VALUES ('$data[0]', '$data[1]')";
+
+			try
+			{
+				$insert_Result = mysqli_query($connect, $insert_Query);
+
+				if ($insert_Result)
+				{
+					if (mysqli_affected_rows($connect) > 0)
+					{
+						echo "Data Inserted";
+					}
+					else
+					{
+						echo "Data Not Inserted";
+					}
+				}
+			}
+			catch (Exception $exception)
+			{
+				echo "Error while inserting values ".$exception->getMessage();
+			}
+		}
+
+		if (isset($_POST['deletestanding']))
+		{
+			$data = getPosts3();
+			$delete_Query = "DELETE FROM `drivers_standings` WHERE `driver_id` = '$data[0]'";
+
+			try
+			{
+				$delete_Result = mysqli_query($connect, $delete_Query);
+
+				if ($delete_Result)
+				{
+					if (mysqli_affected_rows($connect) > 0)
+					{
+						echo "Data Deleted";
+					}
+					else
+					{
+						echo "Data Not Deleted";
+					}
+				}
+			}
+			catch (Exception $exception)
+			{
+				echo "Error while deleting values ".$exception->getMessage();
+			}
+		}
+?>
+		<br/><br/>
+		<form action="standings.php" method="post">
+			<input type="number" name="idstanding" placeholder="Driver ID" value="<?php echo $idstanding;?>"><br/><br/>
+			<input type="number" name="pointsstanding" placeholder="Points" value="<?php echo $pointsstanding;?>"><br/><br/>
+
+			<div>
+				<input type="submit" name="insertstanding" value="Insert">
+				<input type="submit" name="deletestanding" value="Delete">
+			</div>
+		</form>
 		<br/><br/>
 		</div>
 		<div style="clear:both;"></div>
